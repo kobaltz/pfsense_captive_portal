@@ -1,0 +1,479 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Guest Network Access</title>
+    <style>
+      html {
+        font-family: sans-serif;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+
+      input {
+        color: inherit;
+        font: inherit;
+        margin: 0;
+      }
+
+      input[type="submit"] {
+        -webkit-appearance: button;
+        cursor: pointer;
+      }
+
+      button::-moz-focus-inner,
+      input::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+      }
+
+      input {
+        line-height: normal;
+      }
+
+      @media print {
+        *,
+        *:before,
+        *:after {
+          background: transparent !important;
+          color: #000 !important;
+          -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+          text-shadow: none !important;
+        }
+
+        p {
+          orphans: 3;
+          widows: 3;
+        }
+      }
+
+      * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+
+      *:before,
+      *:after {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 10px;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      }
+
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #333333;
+        background-color: #ffffff;
+      }
+
+      input {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+
+      h1 {
+        font-family: inherit;
+        font-weight: 500;
+        line-height: 1.1;
+        color: inherit;
+      }
+
+      h1 {
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      p {
+        margin: 0 0 10px;
+      }
+
+      .lead {
+        margin-bottom: 20px;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 1.4;
+      }
+
+      @media (min-width: 768px) {
+        .lead {
+          font-size: 21px;
+        }
+      }
+
+      .row {
+        margin-left: -15px;
+        margin-right: -15px;
+      }
+
+      .col-sm-2,
+      .col-md-8,
+      .col-sm-10 {
+        position: relative;
+        min-height: 1px;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+      @media (min-width: 768px) {
+        .col-sm-2,
+        .col-sm-10 {
+          float: left;
+        }
+
+        .col-sm-10 {
+          width: 83.33333333%;
+        }
+
+        .col-sm-2 {
+          width: 16.66666667%;
+        }
+
+        .col-sm-offset-2 {
+          margin-left: 16.66666667%;
+        }
+      }
+
+      @media (min-width: 992px) {
+        .col-md-8 {
+          float: left;
+        }
+
+        .col-md-8 {
+          width: 66.66666667%;
+        }
+
+        .col-md-offset-2 {
+          margin-left: 16.66666667%;
+        }
+      }
+
+      label {
+        display: inline-block;
+        max-width: 100%;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      .form-control {
+        display: block;
+        width: 100%;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555555;
+        background-color: #ffffff;
+        background-image: none;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+      }
+
+      .form-control:focus {
+        border-color: #66afe9;
+        outline: 0;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+      }
+
+      .form-control::-moz-placeholder {
+        color: #999999;
+        opacity: 1;
+      }
+
+      .form-control:-ms-input-placeholder {
+        color: #999999;
+      }
+
+      .form-control::-ms-expand {
+        border: 0;
+        background-color: transparent;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      .input-lg {
+        height: 46px;
+        padding: 10px 16px;
+        font-size: 18px;
+        line-height: 1.3333333;
+        border-radius: 6px;
+      }
+
+      .form-horizontal .form-group {
+        margin-left: -15px;
+        margin-right: -15px;
+      }
+
+      @media (min-width: 768px) {
+        .form-horizontal .control-label {
+          text-align: right;
+          margin-bottom: 0;
+          padding-top: 7px;
+        }
+      }
+
+      .btn {
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: normal;
+        text-align: center;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        background-image: none;
+        border: 1px solid transparent;
+        white-space: nowrap;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        border-radius: 4px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      .btn:focus,
+      .btn:active:focus {
+        outline: thin dotted;
+        outline: 5px auto -webkit-focus-ring-color;
+        outline-offset: -2px;
+      }
+
+      .btn:hover,
+      .btn:focus {
+        color: #333333;
+        text-decoration: none;
+      }
+
+      .btn:active {
+        outline: 0;
+        background-image: none;
+        -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+        box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+      }
+
+      .btn-primary {
+        color: #ffffff;
+        background-color: #337ab7;
+        border-color: #2e6da4;
+      }
+
+      .btn-primary:focus {
+        color: #ffffff;
+        background-color: #286090;
+        border-color: #122b40;
+      }
+
+      .btn-primary:hover {
+        color: #ffffff;
+        background-color: #286090;
+        border-color: #204d74;
+      }
+
+      .btn-primary:active {
+        color: #ffffff;
+        background-color: #286090;
+        border-color: #204d74;
+      }
+
+      .btn-primary:active:hover,
+      .btn-primary:active:focus {
+        color: #ffffff;
+        background-color: #204d74;
+        border-color: #122b40;
+      }
+
+      .btn-primary:active {
+        background-image: none;
+      }
+
+      .btn-lg {
+        padding: 10px 16px;
+        font-size: 18px;
+        line-height: 1.3333333;
+        border-radius: 6px;
+      }
+
+      .btn-block {
+        display: block;
+        width: 100%;
+      }
+
+      input[type="submit"].btn-block {
+        width: 100%;
+      }
+
+      .row:before,
+      .row:after,
+      .form-horizontal .form-group:before,
+      .form-horizontal .form-group:after {
+        content: " ";
+        display: table;
+      }
+
+      .row:after,
+      .form-horizontal .form-group:after {
+        clear: both;
+      }
+
+      @-ms-viewport {
+        width: device-width;
+      }
+
+      /* Links */
+
+      /* Custom default button */
+
+      /*
+                 * Base structure
+                 */
+
+      html,
+      body {
+        height: 100%;
+        background-color: #333;
+      }
+
+      body {
+        color: #fff;
+        text-align: center;
+        text-shadow: 0 1px 3px rgba(0,0,0,.5);
+      }
+
+      /* Extra markup and styles for table-esque vertical and horizontal centering */
+
+      .site-wrapper {
+        display: table;
+        width: 100%;
+        height: 100%;
+        /* For at least Firefox */
+        min-height: 100%;
+        -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+        box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+      }
+
+      .site-wrapper-inner {
+        display: table-cell;
+        vertical-align: top;
+      }
+
+      .cover-container {
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      /* Padding for spacing */
+
+      .inner {
+        padding: 30px;
+      }
+
+      /*
+                 * Header
+                 */
+
+      /*
+                 * Cover
+                 */
+
+      .cover {
+        padding: 0 20px;
+      }
+
+      .cover .btn-lg {
+        padding: 10px 20px;
+        font-weight: bold;
+      }
+
+      /*
+                 * Footer
+                 */
+
+      /*
+                 * Affix and center
+                 */
+
+      @media (min-width: 768px) {
+        /* Pull out the header and footer */
+
+        /* Start the vertical centering */
+
+        .site-wrapper-inner {
+          vertical-align: top;
+        }
+
+        /* Handle the widths */
+
+        .cover-container {
+          width: 100%;
+          /* Must be percentage or pixels for horizontal alignment */
+        }
+      }
+
+      @media (min-width: 992px) {
+        .cover-container {
+          width: 800px;
+        }
+      }
+
+      .terms {
+        color: #999;
+        /* IE8 proofing */
+        color: rgba(255,255,255,.5);
+      }
+
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="site-wrapper">
+      <div class="site-wrapper-inner">
+        <div class="cover-container">
+          <div class="inner cover">
+            <h3 class="cover-heading">Thank you for using the Kimura Guest Network</h3>
+            <p class="lead">Close your browser and relauch it to sign in again.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
