@@ -112,3 +112,4 @@ input[type="submit"] { -webkit-appearance: button; cursor: pointer; }
  @media (min-width: 992px) { ,.cover-container { width: 800px; }
  }
  .terms { color: #999; color: rgba(255,255,255,.5); }
+ .error{ color: red; }
