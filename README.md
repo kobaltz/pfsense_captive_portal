@@ -1,8 +1,11 @@
 # pfSense Captive Portal
 
-https://kobaltz.github.io/pfsense_captive_portal/login.html
+https://kobaltz.github.io/pfsense_captive_portal/vanilla/login.html
 
-![Screenshot](screenshot.png)
+## Themes
+
+Vanilla - https://github.com/kobaltz/pfsense_captive_portal/vanilla
+Azmind - https://github.com/kobaltz/pfsense_captive_portal/azmind
 
 ## Installing
 
