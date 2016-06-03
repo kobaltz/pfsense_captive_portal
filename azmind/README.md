@@ -37,3 +37,8 @@ Edit your Captive Portal and upload each of the HTML files in this repository to
   - Logout page contents -> logout.html
 
 ![Settings](../settings.png)
+
+
+## Thanks to 
+
+[azmind](http://azmind.com/demo/bootstrap-login-forms/)
