@@ -1,12 +1,12 @@
 # pfSense Captive Portal
 
-https://kobaltz.github.io/pfsense_captive_portal/vanilla/login.html
+Get rid of the boring default pfSense display and swap it out for a pretty and responsive page.
 
 ## Themes
 
-Vanilla - https://github.com/kobaltz/pfsense_captive_portal/tree/gh-pages/vanilla
+Vanilla - [Source](https://github.com/kobaltz/pfsense_captive_portal/tree/gh-pages/vanilla) - [Example](https://kobaltz.github.io/pfsense_captive_portal/vanilla/login-username-password.html)
 
-Azmind - https://github.com/kobaltz/pfsense_captive_portal/tree/gh-pages/azmind
+Azmind -  - [Source](https://github.com/kobaltz/pfsense_captive_portal/tree/gh-pages/azmind) - [Example](https://kobaltz.github.io/pfsense_captive_portal/azmind/login-username-password.html)
 
 ## Installing
 
